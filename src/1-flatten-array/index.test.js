@@ -30,4 +30,26 @@ describe('flattenArray', () => {
       [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     );
   });
+
+
+  it('should return empty array for array filled with nested arrays', () => {
+    assert.deepEqual(
+      flattenArray([[], [[[[]]]]]),
+      [],
+    );
+  });
+
+  it('should return null for null input', () => {
+    assert.deepEqual(
+      flattenArray(null),
+      null,
+    );
+  });
+
+  it('should handle nested null values in an input', () => {
+    assert.deepEqual(
+      flattenArray([1, [[null]]]),
+      [1, null],
+    );
+  });
 });
