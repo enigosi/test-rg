@@ -31,7 +31,6 @@ describe('flattenArray', () => {
     );
   });
 
-
   it('should return empty array for array filled with nested arrays', () => {
     assert.deepEqual(
       flattenArray([[], [[[[]]]]]),
