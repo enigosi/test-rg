@@ -6,6 +6,7 @@
     },
     "rules": {
       "no-use-before-define": ["error", { "functions": false }],
-      "import/no-extraneous-dependencies": ["error", {"devDependencies": ["execute.js"]}]
+      "import/no-extraneous-dependencies": ["error", {"devDependencies": ["execute.js"]}],
+      "function-paren-newline": ["error", "consistent"]
     }
 }

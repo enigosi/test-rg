@@ -96,10 +96,6 @@ function obfuscateRecursive(morseCharsLeft, resultChars, lastMorseChar, counter)
   }
 
   // run next iteration
-  return obfuscateRecursive(
-    morseCharsLeftClone,
-    [...resultChars, getObfuscatedChar(lastMorseChar, counter)],
-    morseChar,
-    1,
-  );
+  const updatedResults = [...resultChars, getObfuscatedChar(lastMorseChar, counter)];
+  return obfuscateRecursive(morseCharsLeftClone, updatedResults, morseChar, 1);
 }
