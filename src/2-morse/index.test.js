@@ -24,6 +24,13 @@ describe('morse encoder', () => {
     );
   });
 
+  it('should correctly parse singe word', () => {
+    assert.deepEqual(
+      morseEncoder('TROUBLE'),
+      '-|.-.|---|..-|-...|.-..|.',
+    );
+  });
+
   it('should correctly parse basic example', () => {
     assert.deepEqual(
       morseEncoder('I AM IN TROUBLE'),
