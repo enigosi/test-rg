@@ -71,12 +71,12 @@ describe('morse encoder', () => {
 
     it('should correctly parse morse letters', () => {
       assert.strictEqual(
-        obfuscateMorse('...'),
-        '3',
+        obfuscateMorse('...-'),
+        '3A',
       );
       assert.strictEqual(
         obfuscateMorse('--.-'),
-        'b1a',
+        'B1A',
       );
     });
 
@@ -84,13 +84,6 @@ describe('morse encoder', () => {
       assert.strictEqual(
         obfuscateMorse('../.-|--/..|-./-|.-.|---|..-|-...|.-..|.'),
         '2/1A|B/2|A1/A|1A1|C|2A|A3|1A2|1',
-      );
-    });
-
-    it('should return null when morse code is not valid', () => {
-      assert.strictEqual(
-        obfuscateMorse('...........'),
-        null,
       );
     });
   });

@@ -4,7 +4,8 @@
   "description": "coding challenge",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha src/**/*.test.js"
+    "test": "./node_modules/.bin/mocha src/**/*.test.js",
+    "lint": "./node_modules/.bin/eslint ."
   },
   "author": "Wojciech Romanski",
   "license": "ISC",

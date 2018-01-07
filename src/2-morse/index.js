@@ -40,6 +40,15 @@ const MORSE_CODE = {
   '.': '.-.-.-',
   ',': '--..--',
 };
+const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
+
+
+module.exports.encodeMorse = function encodeMorse(textInput) {
+  if (typeof textInput !== 'string') return null;
+
+  const words = textInput.split(' ');
+  return words.map(parseWord).join(WORD_DELIMITER);
+};
 
 function parseWord(word) {
   const letters = word.split('');
@@ -52,13 +61,45 @@ function parseWord(word) {
     .join(LETTER_DELIMITER);
 }
 
-module.exports.encodeMorse = function encodeMorse(textInput) {
-  if (typeof textInput !== 'string') return null;
-
-  const words = textInput.split(' ');
-  return words.map(parseWord).join(WORD_DELIMITER);
-};
 
 module.exports.obfuscateMorse = function obfuscateMorse(morseCodeInput) {
+  if (typeof morseCodeInput !== 'string') return null;
 
+  const morseCodeInputArray = morseCodeInput.split('');
+  const resultArray = obfuscateRecursive(morseCodeInputArray, [], null, 0);
+  return resultArray.join('');
 };
+
+function getObfuscatedChar(morseChar, count) {
+  // return delimiter
+  if (morseChar === LETTER_DELIMITER || morseChar === WORD_DELIMITER) return morseChar;
+  // return number
+  if (morseChar === '.') return count;
+  // return letter
+  return ALPHABET[count - 1];
+}
+
+function obfuscateRecursive(morseCharsLeft, resultChars, lastMorseChar, counter) {
+  // if there is no more characters left return result
+  if (!morseCharsLeft.length) {
+    return [
+      ...resultChars,
+      getObfuscatedChar(lastMorseChar, counter),
+    ];
+  }
+
+  const [morseChar, ...morseCharsLeftClone] = morseCharsLeft;
+
+  // if lastMorseChar & character are '.'s or '-'s
+  if (lastMorseChar === morseChar && (lastMorseChar === '.' || lastMorseChar === '-')) {
+    return obfuscateRecursive(morseCharsLeftClone, resultChars, morseChar, counter + 1);
+  }
+
+  // run next iteration
+  return obfuscateRecursive(
+    morseCharsLeftClone,
+    [...resultChars, getObfuscatedChar(lastMorseChar, counter)],
+    morseChar,
+    1,
+  );
+}
