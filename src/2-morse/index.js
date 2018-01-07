@@ -41,7 +41,6 @@ const MORSE_CODE = {
   ',': '--..--',
 };
 
-
 function parseWord(word) {
   const letters = word.split('');
 
@@ -53,9 +52,13 @@ function parseWord(word) {
     .join(LETTER_DELIMITER);
 }
 
-module.exports.morseEncoder = function morseEncoder(textInput) {
+module.exports.encodeMorse = function encodeMorse(textInput) {
   if (typeof textInput !== 'string') return null;
 
   const words = textInput.split(' ');
   return words.map(parseWord).join(WORD_DELIMITER);
+};
+
+module.exports.obfuscateMorse = function obfuscateMorse(morseCodeInput) {
+
 };
