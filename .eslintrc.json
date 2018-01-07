@@ -5,6 +5,7 @@
       "mocha": true
     },
     "rules": {
-      "no-use-before-define": ["error", { "functions": false }]
+      "no-use-before-define": ["error", { "functions": false }],
+      "import/no-extraneous-dependencies": ["error", {"devDependencies": ["execute.js"]}]
     }
 }
