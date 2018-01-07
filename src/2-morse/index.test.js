@@ -1,6 +1,6 @@
 
 const assert = require('assert');
-const morseEncoder = require('./index');
+const { morseEncoder } = require('./index');
 
 describe('morse encoder', () => {
   it('should return empty string for empty string input', () => {
