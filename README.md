@@ -7,15 +7,22 @@
 * Go to main directory and run ``yarn``
 
 ## Commands
-* ``yarn test`` run tests
+run automated tests
+* ``yarn test``
+
+encode file content and save it to ./test-results.txt;
+* ``node encode-file < /my-test/test.txt``
+
+test individual methods with your input
+
+NOTE: parameters have to be passed in double quotes
 * ``node execute encodeMorse "I AM IN TROUBLE"``
 * ``node execute encodeAndObfuscateMorse "I AM IN TROUBLE"``
 * ``node execute flattenArray "[1, 2, [3, 4, [5,6]]]"``
 
-NOTE: parameters have to be passed in double quotes
 
 ## Challenges:
-### 1. 
+### 1.
 Write an algorithm to flatten an arbitrarily nested array of integers. e.g. [ 1, [ 2, [ 3 ] ], 4 ] -> [ 1, 2, 3, 4 ].
 
 ### 2.
