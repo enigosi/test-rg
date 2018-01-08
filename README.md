@@ -1,7 +1,7 @@
 # test-rg
 
 ## Installation
-* Install [`node`](https://nodejs.org/en/) (tested on 6.9.1, 7.8.0 and 9.2.1)
+* Install [`node`](https://nodejs.org/en/) (tested on 7.8.0 and 9.2.1)
 * Install [`yarn`](https://yarnpkg.com/en/)
 * Clone repository
 * Go to main directory and run ``yarn``
