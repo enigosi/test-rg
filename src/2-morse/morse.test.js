@@ -24,7 +24,7 @@ describe('encodeMorse', () => {
     );
   });
 
-  it('should correctly parse singe word', () => {
+  it('should correctly parse single word', () => {
     assert.strictEqual(
       encodeMorse('TROUBLE'),
       '-|.-.|---|..-|-...|.-..|.',
@@ -34,6 +34,13 @@ describe('encodeMorse', () => {
   it('should correctly parse basic example', () => {
     assert.strictEqual(
       encodeMorse('I AM IN TROUBLE'),
+      '../.-|--/..|-./-|.-.|---|..-|-...|.-..|.',
+    );
+  });
+
+  it('should be case insensitive', () => {
+    assert.strictEqual(
+      encodeMorse('i am in trouble'),
       '../.-|--/..|-./-|.-.|---|..-|-...|.-..|.',
     );
   });

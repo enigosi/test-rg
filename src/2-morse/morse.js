@@ -3,7 +3,7 @@ const { WORD_DELIMITER, LETTER_DELIMITER, MORSE_CODE } = require('./consts');
 module.exports = function encodeMorse(textInput) {
   if (typeof textInput !== 'string') return null;
 
-  const words = textInput.split(' ');
+  const words = textInput.toUpperCase().split(' ');
   return words.map(parseWord).join(WORD_DELIMITER);
 };
 
